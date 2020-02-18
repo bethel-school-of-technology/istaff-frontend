@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function NavBar() {
     return (
         <ul>
-            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Login</Link></li>
             <li><Link to="/CreateAccount">Create Account</Link></li>
         </ul>       
     )

@@ -5,18 +5,12 @@ function CreateAccount() {
         <div>
             <h1>Create Employee Account</h1>
             <form>
-               <label>First Name:</label>
-               <input /><br></br>
-               <label>Last Name:</label>
-               <input /><br></br>
-               <label>Middle Initial:</label>
-               <input /><br></br>
-               <label>Date Of Birth:</label>
-               <input /><br></br>
-               <label>Hire Date:</label>
-               <input /><br></br>
-               <label>Username:</label>
-               <input /><br></br>
+               <input placeholder="First Name"></input><br></br>
+               <input placeholder="Last Name"></input><br></br>
+               <input placeholder="Middle Initial"></input><br></br>
+               <input placeholder="Date of Birth"></input><br></br>
+               <input placeholder="Hire Date"></input><br></br>
+               <input placeholder="Username"></input><br></br>
                <button>Submit</button>
             </form>
         </div>
