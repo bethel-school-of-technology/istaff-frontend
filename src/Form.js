@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class CreateAccount extends Component {
+export class Form extends Component {
 
     constructor(props) {
         super(props)
@@ -44,7 +44,7 @@ export class CreateAccount extends Component {
             hireDate: event.target.value
         })
     }
-
+    
     handleUsernameChange = (event) => {
         this.setState({
             username: event.target.value
@@ -66,19 +66,19 @@ export class CreateAccount extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div>
-                    <h1>Create Employee Account</h1>
-                    <label>First Name: </label>
-                    <input type='text' value={this.state.firstName} onChange={this.handleFirstNameChange} /><br />
-                    <label>Last Name: </label>
-                    <input type='text' value={this.state.lastName} onChange={this.handleLastNameChange} /><br />
-                    <label>Middle Initial: </label>
-                    <input type='text' value={this.state.middleInitial} onChange={this.handleMiddleInitialChange} /><br />
-                    <label>Date of Birth: </label>
-                    <input type='date' value={this.state.dob} onChange={this.handleBirthdayChange} /><br />
-                    <label>Hire Date: </label>
-                    <input type='date' value={this.state.hireDate} onChange={this.handleHireDateChange} /><br />
-                    <label>Username: </label>
-                    <input type='text' value={this.state.username} onChange={this.handleUsernameChange} /><br />
+                <h1>Create Employee Account</h1>
+                <label>First Name: </label>
+                <input type='text' value={this.state.firstName} onChange={this.handleFirstNameChange} /><br />
+                <label>Last Name: </label>
+                <input type='text' value={this.state.lastName} onChange={this.handleLastNameChange} /><br />
+                <label>Middle Initial: </label>
+                <input type='text' value={this.state.middleInitial} onChange={this.handleMiddleInitialChange} /><br />
+                <label>Date of Birth: </label>
+                <input type='date' value={this.state.dob} onChange={this.handleBirthdayChange} /><br />
+                <label>Hire Date: </label>
+                <input type='date' value={this.state.hireDate} onChange={this.handleHireDateChange} /><br />
+                <label>Username: </label>
+                <input type='text' value={this.state.username} onChange={this.handleUsernameChange} /><br />
                 </div>
                 <button type='submit'>Submit</button>
             </form>
@@ -86,4 +86,4 @@ export class CreateAccount extends Component {
     }
 }
 
-export default CreateAccount;
+export default Form;
