@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Login1 extends Component {
+export default class Login extends Component {
     constructor(props) {
         super(props);
 
@@ -56,7 +56,7 @@ export default class Login1 extends Component {
                         type="text"
                         name="username"
                         placeholder="Username"
-                        value={this.state.email}
+                        value={this.state.username}
                         onChange={this.onChange}
                         required
                     /><br />
