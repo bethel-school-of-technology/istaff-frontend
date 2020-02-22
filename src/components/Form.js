@@ -66,7 +66,7 @@ export class Form extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div>
-                <h1>Create New Employee Account</h1>
+                <h1>Create Employee Account</h1>
                 <label>First Name: </label>
                 <input type='text' value={this.state.firstName} onChange={this.handleFirstNameChange} /><br />
                 <label>Last Name: </label>
