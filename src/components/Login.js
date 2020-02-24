@@ -13,7 +13,13 @@ export default class Login extends Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
     }
+
+    handleSuccessfulAuth(data) {
+        this.props.handleLogin(data);
+        this.props.history.push("/profile");
+      }
 
     onChange(event) {
         this.setState({
@@ -28,12 +34,9 @@ export default class Login extends Component {
             .post(
                 "http://localhost:3001/users/login",
                 {
-                    user: {
-                        userId: userId,
-                        password: password
-                    }
+                    userId,
+                    password
                 },
-                // { withCredentials: true }
             )
             .then(response => {
                 if (response.data.logged_in) {
@@ -53,7 +56,7 @@ export default class Login extends Component {
                 <h2>Login</h2>
                 <form onSubmit={this.onSubmit}>
                     <input
-                        type="text"
+                        type="string"
                         name="userId"
                         placeholder="Username"
                         value={this.state.userId}
