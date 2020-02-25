@@ -9,10 +9,15 @@ export default class Home extends Component {
         this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
     }
 
+    //CALLS handleLogin() FUNCTION DEFINED IN APP.JS
+
     handleSuccessfulAuth(data) {
         this.props.handleLogin(data);
         this.props.history.push("/profile");
     }
+
+    //CURRENTLY RENDERS ONLY LOGIN COMPONENT ON DEFAULT PATH
+    //LOGIN COMPONENT WIRED HERE TO AUTHENTICATE SUCCESSFUL LOGIN & REDIRECT
 
     render() {
         return (

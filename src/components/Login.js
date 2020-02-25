@@ -16,14 +16,21 @@ export default class Login extends Component {
         this.onChange = this.onChange.bind(this);
     }
 
+    //ALLOWS INPUT STATE TO CHANGE USING DEFINED VALUES
+
     onChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
 
+    //PASSES USERID & PASSWORD FOR AUTHENTICATION WHEN "SUBMIT" BUTTON IS CLICKED
+
     onSubmit(event) {
         const { userId, password } = this.state;
+
+        //LOGIN CREDNETIALS PROVIDED ARE POSTED TO THE BACKEND FOR AUTHENTICATION
+        //SUCCESSFUL LOGIN RETURNS RESPONSE, AUTHENTICATES & REDIRECTS USER
 
         axios
             .post(
@@ -34,19 +41,22 @@ export default class Login extends Component {
                 },
                 console.log('Sent Username and Password')
             )
-            .then(response => {
+            .then(response => { //RESPONSE INITIATED WHEN BACKEND RECEIVES CREDENTIALS
                 console.log(response);
-                if (response.data.logged_in) {
-                    this.props.handleSuccessfulAuth(response.data);
-                    return <Redirect to="/profile"/>
+                if (response.data.logged_in) { //IF logged_in IS TRUE
+                    this.props.handleSuccessfulAuth(response.data); //SUCCESSFUL AUTHENTICATION IS HANDLED
+                    return <Redirect to="/profile"/> //USER IS REDIRECTED TO THE PROFILE PAGE
                 }
                 console.log('Received Logged_In Response')
             })
             .catch(error => {
-                console.log("login error", error);
+                console.log("login error", error); //ERROR PROVIDED IN THE CONSOLE IF LOGIN IS UNSUCCESSFUL
             });
-        event.preventDefault();
+        event.preventDefault(); //PREVENTS AUTOMATIC REFRESH WHEN "SUBMIT" BUTTON IS CLICKED
     }
+
+    //LOGIN FORM WIRED TO CHECK USERID & PASSWORD STORED IN DATABASE
+    //onSubmit() & onChange() ARE DEFINED ABOVE
 
     render() {
         return (
