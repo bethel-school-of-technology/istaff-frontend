@@ -8,6 +8,7 @@ import CreateAccount from './components/CreateAccount';
 import NavBar from './components/NavBar';
 import Form from './components/Form';
 import Profile from './components/Profile';
+import Home from './components/Home';
 
 class App extends Component {
   constructor() {
@@ -66,24 +67,24 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar />
-          <Route exact path="/" 
+          <Route exact path="/"
             render={props => (
-              <Login 
-              {...props} 
-              handleLogin={this.handleLogin} 
-              loggedInStatus={this.state.loggedInStatus} 
-              handleSuccessfulAuth={this.handleSuccessfulAuth}
+              <Home
+                {...props}
+                handleLogin={this.handleLogin}
+                loggedInStatus={this.state.loggedInStatus}
               />
-            )} 
+            )}
           />
-          <Route exact path="/profile" 
+          <Route exact path="/profile"
             render={props => (
-              <Profile 
-              {...props}
-              loggedInStatus={this.state.loggedInStatus}
+              <Profile
+                {...props}
+                loggedInStatus={this.state.loggedInStatus}
               />
-            )} 
+            )}
           />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/createaccount" component={CreateAccount} />
           <Route exact path="/form" component={Form} />
         </div>

@@ -13,13 +13,7 @@ export default class Login extends Component {
 
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
-        this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
     }
-
-    handleSuccessfulAuth(data) {
-        this.props.handleLogin(data);
-        this.props.history.push("/profile");
-      }
 
     onChange(event) {
         this.setState({
