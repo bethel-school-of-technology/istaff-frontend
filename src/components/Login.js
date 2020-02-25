@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
     constructor(props) {
@@ -31,11 +32,15 @@ export default class Login extends Component {
                     userId,
                     password
                 },
+                console.log('Sent Username and Password')
             )
             .then(response => {
+                console.log(response);
                 if (response.data.logged_in) {
                     this.props.handleSuccessfulAuth(response.data);
+                    return <Redirect to="/profile"/>
                 }
+                console.log('Received Logged_In Response')
             })
             .catch(error => {
                 console.log("login error", error);
