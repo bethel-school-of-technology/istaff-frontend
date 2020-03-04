@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+//import { Link } from "react-router-dom"; to link to reset password page
+
 
 export default class Login extends Component {
     constructor(props) {
