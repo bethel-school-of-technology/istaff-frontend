@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { Link } from "react-router-dom";
 import {
-  HelpBlock,
+  FormText,
   FormGroup,
   Glyphicon,
   FormControl,
@@ -113,10 +113,10 @@ export default class ResetPassword extends Component {
             value={this.state.code}
             onChange={this.handleChange}
           />
-          <HelpBlock>
+          <FormText>
             Please check your email ({this.state.email}) for the confirmation
             code.
-          </HelpBlock>
+          </FormText>
         </FormGroup>
         <hr />
         <FormGroup bsSize="large" controlId="password">
