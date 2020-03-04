@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import CreateAccount from './CreateAccount';
+import EmployeeList from './EmployeeList';
 
 export default class Manager extends Component {
     constructor(props) {
@@ -13,18 +14,9 @@ export default class Manager extends Component {
         return (
             <div>
                 <h1>Manager Portal</h1>
-                <CreateAccount />
+                <CreateAccount /><br />
+                <EmployeeList />
             </div>
         );
     };
 };
-
-// function Manager() {
-//     return (
-//         <div>
-//             <h1>Manager Page</h1>
-//         </div>
-//     )
-// }
-
-// export default Manager;
