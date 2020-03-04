@@ -15,7 +15,7 @@ export default class Login extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
     }
-
+//<Link to="/login/reset">Forgot password?</Link> to link password reset to resetpassword.js
     //ALLOWS INPUT STATE TO CHANGE USING DEFINED VALUES
 
     onChange(event) {
