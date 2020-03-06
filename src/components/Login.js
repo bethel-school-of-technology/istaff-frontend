@@ -84,7 +84,7 @@ export default class Login extends Component {
                     /><br />
 
                     <button type="submit">Login</button>
-                    <link to="/ResetPassword"> <button>Forgot Password</button> </link>
+                    <Link to="/ResetPassword"> <button>Forgot Password</button> </Link>
                         <br />
                     <button>Manager Sign Up!</button>
                 </form>
