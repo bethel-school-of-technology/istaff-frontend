@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Auth } from "aws-amplify";
 import { Link } from "react-router-dom";
 import {
   FormText,
@@ -51,7 +50,7 @@ export default class ResetPassword extends Component {
     this.setState({ isSendingCode: true });
 
     try {
-      await Auth.forgotPassword(this.state.email);
+      await this.forgotPassword(this.state.email);
       this.setState({ codeSent: true });
     } catch (e) {
       alert(e.message);
@@ -65,7 +64,7 @@ export default class ResetPassword extends Component {
     this.setState({ isConfirming: true });
 
     try {
-      await Auth.forgotPasswordSubmit(
+      await this.forgotPasswordSubmit(
         this.state.email,
         this.state.code,
         this.state.password
