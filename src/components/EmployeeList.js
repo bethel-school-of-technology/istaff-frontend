@@ -42,4 +42,3 @@ export default class EmployeeList extends Component {
     }
 
 }
-export default EmployeeList;
