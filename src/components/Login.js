@@ -42,7 +42,6 @@ export default class Login extends Component {
                 console.log('Sent Username and Password'),
             )
             .then(response => {
-                console.log(response);
                 //ROUTE TO EMPLOYEE PROFILE
                 if (response.data.logged_in) {
                     console.log('Received Logged_In Response')
@@ -61,6 +60,7 @@ export default class Login extends Component {
                 else if (response.data.logged_in_admin) {
                     console.log('Received Logged_In_Admin Response')
                     this.props.handleSuccessfulAuth(response.data)
+                    
 
                     return <Redirect to="/admin" />
                 }
@@ -106,7 +106,7 @@ export default class Login extends Component {
     }
 }
 
-export default Login;
+//export default Login;
 
 
 

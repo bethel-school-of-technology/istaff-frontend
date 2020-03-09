@@ -20,4 +20,4 @@ export default class Manager extends Component {
         );
     };
 };
-export default Manager;
+//export default Manager;

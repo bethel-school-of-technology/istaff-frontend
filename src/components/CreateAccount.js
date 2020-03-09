@@ -12,7 +12,10 @@ export default class CreateAccount extends Component {
             dob: '',
             hireDate: '',
             userId: '',
-            password: ''
+            password: '',
+            email: '',
+            idcomp: '',
+            manager: ''
         }
     }
 
@@ -25,6 +28,7 @@ export default class CreateAccount extends Component {
         console.log(this.state);
         axios.post('http://localhost:3001/users/signup', this.state)
             .then(response => {
+                document.getElementById('idcomp').setAttribute('value', localStorage.getItem('idcomp'));
                 console.log(response)
             })
             .catch(error => {
@@ -33,7 +37,7 @@ export default class CreateAccount extends Component {
     }
 
     render() {
-        const { firstName, lastName, middleName, dob, hireDate, userId, password } = this.state
+        const { firstName, lastName, middleName, dob, hireDate, userId, password, email, idcomp, manager } = this.state
         return (
             <div className="App">
                 <h1>Create Employee Account</h1>
@@ -52,6 +56,13 @@ export default class CreateAccount extends Component {
                     <input type='text' name='userId' value={userId} onChange={this.changeHandler} /><br />
                     <label>Password: </label>
                     <input type='password' name ='password' value={password} onChange={this.changeHandler} /><br />
+                    <label>Email: </label>
+                    <input type='email' name ='email' value={email} onChange={this.changeHandler} /><br />
+                    <label>Company: </label>
+                    <input id="idcomp" type='hidden' name ='idcomp' value={idcomp} onChange={this.changeHandler} /><br />
+                    <label>Manager: </label>
+                    <input type='checkbox' name ='manager' value={manager} onChange={this.changeHandler} /><br />
+                    
                     <button type='submit'>Submit</button>
                 </form>
             </div>
@@ -59,4 +70,4 @@ export default class CreateAccount extends Component {
     }
 }
 
-export default CreateAccount;
+//export default CreateAccount;

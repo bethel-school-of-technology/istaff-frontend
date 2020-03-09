@@ -15,10 +15,10 @@ export default class EmployeeList extends Component {
     componentDidMount() {
         axios.get('http://localhost:3001/users')
             .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 const users = res.data.map(obj => ({ firstName: obj.firstName, lastName: obj.lastName }));
                 this.setState({ users });
-                console.log(users);
+                //console.log(users);
             });
     }
 
@@ -42,4 +42,4 @@ export default class EmployeeList extends Component {
     }
 
 }
-export default EmployeeList;
+//export default EmployeeList;
