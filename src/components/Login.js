@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom"; 
-
 
 export default class Login extends Component {
     constructor(props) {
@@ -18,6 +16,7 @@ export default class Login extends Component {
         this.onChange = this.onChange.bind(this);
     }
 
+    //ALLOWS INPUT STATE TO CHANGE USING DEFINED VALUES
 
     onChange(event) {
         this.setState({
@@ -40,15 +39,31 @@ export default class Login extends Component {
                     userId,
                     password
                 },
-                console.log('Sent Username and Password')
+                console.log('Sent Username and Password'),
             )
-            .then(response => { //RESPONSE INITIATED WHEN BACKEND RECEIVES CREDENTIALS
+            .then(response => {
                 console.log(response);
-                if (response.data.logged_in) { //IF logged_in IS TRUE
-                    this.props.handleSuccessfulAuth(response.data); //SUCCESSFUL AUTHENTICATION IS HANDLED
-                    return <Redirect to="/profile"/> //USER IS REDIRECTED TO THE PROFILE PAGE
+                //ROUTE TO EMPLOYEE PROFILE
+                if (response.data.logged_in) {
+                    console.log('Received Logged_In Response')
+                    this.props.handleSuccessfulAuth(response.data)
+
+                    return <Redirect to="/profile" />
                 }
-                console.log('Received Logged_In Response')
+                //ROUTE TO MANAGER PROFILE
+                else if (response.data.logged_in_manager) {
+                    console.log('Received Logged_In_Manager Response')
+                    this.props.handleSuccessfulAuth(response.data)
+
+                    return <Redirect to="/manager" />
+                }
+                //ROUTE TO ADMIN PROFILE
+                else if (response.data.logged_in_admin) {
+                    console.log('Received Logged_In_Admin Response')
+                    this.props.handleSuccessfulAuth(response.data)
+
+                    return <Redirect to="/admin" />
+                }
             })
             .catch(error => {
                 console.log("login error", error); //ERROR PROVIDED IN THE CONSOLE IF LOGIN IS UNSUCCESSFUL
@@ -83,9 +98,7 @@ export default class Login extends Component {
                         required
                     /><br />
 
-                    <button type="submit">Login</button>
-                    <Link to="/ResetPassword"> <button>Forgot Password</button> </Link>
-                        <br />
+                    <button type="submit">Login</button><button>Forgot Password</button><br />
                     <button>Manager Sign Up!</button>
                 </form>
             </div>
@@ -93,6 +106,7 @@ export default class Login extends Component {
     }
 }
 
+export default Login;
 
 
 

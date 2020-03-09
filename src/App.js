@@ -3,10 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 
-import Login from './components/Login';
-import CreateAccount from './components/CreateAccount';
-import NavBar from './components/NavBar';
-import Form from './components/Form';
+import Manager from './components/Manager';
 import Profile from './components/Profile';
 import Home from './components/Home';
 
@@ -18,7 +15,7 @@ class App extends Component {
 
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN",
-      user: {}
+      user: {},
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -76,7 +73,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <NavBar />
+          {/* <NavBar /> */}
           <Route exact path="/"
             render={props => (
               <Home
@@ -94,9 +91,22 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/createaccount" component={CreateAccount} />
-          <Route exact path="/form" component={Form} />
+          <Route exact path="/manager"
+            render={props => (
+              <Manager
+                {...props}
+                loggedInStatus={this.state.loggedInStatus}
+              />
+            )}
+          />
+          {/* <Route exact path="/admin"
+            render={props => (
+              <Admin
+                {...props}
+                loggedInStatus={this.state.loggedInStatus}
+              />
+            )}
+          /> */}
         </div>
       </Router>
     );

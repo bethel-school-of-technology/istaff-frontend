@@ -12,8 +12,15 @@ export default class Home extends Component {
     //CALLS handleLogin() FUNCTION DEFINED IN APP.JS
 
     handleSuccessfulAuth(data) {
+        console.log(data);
         this.props.handleLogin(data);
-        this.props.history.push("/profile");
+        if (data.hasOwnProperty('logged_in')) {
+            this.props.history.push("/profile");
+        } else if (data.hasOwnProperty('logged_in_manager')) {
+            this.props.history.push("/manager");
+        } else if (data.hasOwnProperty('logged_in_admin')) {
+            this.props.history.push("/admin");
+        }
     }
 
     //CURRENTLY RENDERS ONLY LOGIN COMPONENT ON DEFAULT PATH
@@ -27,3 +34,4 @@ export default class Home extends Component {
         );
     }
 }
+export default Home;
