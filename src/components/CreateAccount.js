@@ -14,10 +14,18 @@ export default class CreateAccount extends Component {
             userId: '',
             password: '',
             email: '',
-            idcomp: '',
-            manager: ''
+            idcomp: localStorage.getItem('idcomp'),
+            manager: '0'
         }
     }
+
+        handleCheck = e => {
+            if (this.state.manager === '0') {
+                this.setState({manager: '1'})
+            } else {
+                this.setState({manager:'0'})
+            }
+        }
 
     changeHandler = e => {
         this.setState({[e.target.name]: e.target.value})
@@ -37,7 +45,7 @@ export default class CreateAccount extends Component {
     }
 
     render() {
-        const { firstName, lastName, middleName, dob, hireDate, userId, password, email, idcomp, manager } = this.state
+        const { firstName, lastName, middleName, dob, hireDate, userId, password, email, idcomp } = this.state
         return (
             <div className="App">
                 <h1>Create Employee Account</h1>
@@ -59,10 +67,9 @@ export default class CreateAccount extends Component {
                     <label>Email: </label>
                     <input type='email' name ='email' value={email} onChange={this.changeHandler} /><br />
                     <label>Company: </label>
-                    <input id="idcomp" type='hidden' name ='idcomp' value={idcomp} onChange={this.changeHandler} /><br />
+                    <input id="idcomp"  type='number' name ='idcomp' value={idcomp} onChange={this.changeHandler} readOnly/> <br />
                     <label>Manager: </label>
-                    <input type='checkbox' name ='manager' value={manager} onChange={this.changeHandler} /><br />
-                    
+                    <input type='checkbox' name ='manager'  onChange={this.handleCheck} /><br />
                     <button type='submit'>Submit</button>
                 </form>
             </div>
