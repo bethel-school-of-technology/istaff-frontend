@@ -21,12 +21,11 @@ export default class Manager extends Component {
             this.setState({active:'true'})
         }
   
-
 }
 submitHandler = e => {
     e.preventDefault();
     console.log(this.state);
-    axios.post('http://localhost:3001/users/manager', this.state)
+    axios.post('http://localhost:3001/users/admin', this.state)
         .then(response => {
             document.getElementById('idcomp').setAttribute('value', localStorage.getItem('idcomp'));
             console.log(response)
@@ -36,10 +35,9 @@ submitHandler = e => {
         })
 }
     render() {
-        const {active} = this.state
         return (
             <div>
-                <h1>Manager Portal</h1>
+                <h1>Admin Portal</h1>
                 <CreateAccount /><br />
                 <EmployeeList />
                 <input type='checkbox' name ='Disable User'  onChange={this.handleCheck} /><br />

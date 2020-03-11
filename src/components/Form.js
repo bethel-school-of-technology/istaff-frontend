@@ -81,6 +81,8 @@ export class Form extends Component {
                 <input type='text' value={this.state.username} onChange={this.handleUsernameChange} /><br />
                 </div>
                 <button type='submit'>Submit</button>
+                <div>
+                </div>
             </form>
         )
     }
