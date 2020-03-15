@@ -15,7 +15,9 @@ export default class EmployeeList extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/users')
+        let data = { ...this.state, idcomp: localStorage.getItem('idcomp')}
+        //console.log(localStorage.getItem('idcomp'));
+        axios.post('http://localhost:3001/users', data)
             .then(res => {
                 console.log(res.data)
                 const users = res.data.map(obj => ({ idemp: obj.idemp, firstName: obj.firstName, lastName: obj.lastName }));
