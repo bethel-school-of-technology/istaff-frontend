@@ -87,5 +87,3 @@ export default class CreateAccount extends Component {
         );
     }
 }
-
-//export default CreateAccount;
