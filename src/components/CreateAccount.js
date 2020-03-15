@@ -18,7 +18,7 @@ export default class CreateAccount extends Component {
             manager: '0'
         }
     }
-
+        //THIS ASSIGNS TRUE OR FALSE FOR THE MANAGER CHECKBOX
         handleCheck = e => {
             if (this.state.manager === '0') {
                 this.setState({manager: '1'})
@@ -36,8 +36,19 @@ export default class CreateAccount extends Component {
         console.log(this.state);
         axios.post('http://localhost:3001/users/signup', this.state)
             .then(response => {
-                document.getElementById('idcomp').setAttribute('value', localStorage.getItem('idcomp'));
                 console.log(response)
+                this.setState({
+                    firstName: '',
+                    lastName: '',
+                    middleName: '',
+                    dob: '',
+                    hireDate: '',
+                    userId: '',
+                    password: '',
+                    email: '',
+                    idcomp: localStorage.getItem('idcomp'),
+                    manager: '0'
+                })
             })
             .catch(error => {
                 console.log(error)

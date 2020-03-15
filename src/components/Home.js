@@ -20,12 +20,17 @@ export default class Home extends Component {
             const lastName = data.emp.lastName;
             const punch = data.emp.punch;
             const idcomp = data.emp.idcomp;
+            const idemp = data.emp.idemp;
+            //SETS THE CURRENT TIME PUNCH RECORD IDTIME_PUNCH TO LOCAL STORAGE
+            const punches = [(data.time_punch[0])['idtime_punch']];
 
             localStorage.setItem('jwt', jwt);
             localStorage.setItem('firstName',firstName);
             localStorage.setItem('lastName',lastName);
             localStorage.setItem('punch',punch);
             localStorage.setItem('idcomp',idcomp);
+            localStorage.setItem('idemp', idemp);
+            localStorage.setItem('idtime_punch', punches);
             this.props.history.push("/profile");
 
         } else if (data.hasOwnProperty('logged_in_manager')) {
@@ -34,12 +39,14 @@ export default class Home extends Component {
             const lastName = data.emp.lastName;
             const punch = data.emp.punch;
             const idcomp = data.emp.idcomp;
+            const idemp = data.emp.idemp;
 
             localStorage.setItem('jwt', jwt);
             localStorage.setItem('firstName',firstName);
             localStorage.setItem('lastName',lastName);
             localStorage.setItem('punch',punch);
             localStorage.setItem('idcomp',idcomp);
+            localStorage.setItem('idemp', idemp);
             this.props.history.push("/manager");
 
         } else if (data.hasOwnProperty('logged_in_admin')) {
@@ -48,12 +55,14 @@ export default class Home extends Component {
             const lastName = data.emp.lastName;
             const punch = data.emp.punch;
             const idcomp = data.emp.idcomp;
+            const idemp = data.emp.idemp;
 
             localStorage.setItem('jwt', jwt);
             localStorage.setItem('firstName',firstName);
             localStorage.setItem('lastName',lastName);
             localStorage.setItem('punch',punch);
             localStorage.setItem('idcomp',idcomp);
+            localStorage.setItem('idemp', idemp);
             this.props.history.push("/admin");
         }
     }
