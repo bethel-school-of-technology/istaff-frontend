@@ -1,18 +1,35 @@
-import React from "react";
+import React, { Component } from "react";
+
+import Punch from './Punch';
 
 //LINE 12 IS A PLACEHOLDER TO SHOW USER LOGIN STATUS
 //"NOT_LOGGED_IN" IS DEFAULT STATE FOR PROP DEFINED IN APP.JS
 //STATUS CHANGES TO "LOGGED_IN" AFTER SUCCESSFUL LOGIN & REDIRECT
 
-const Profile = props => {
-  return (
-    <div>
+export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
+  render() {
+    return (
       <div>
-        <h1>Employee Profile</h1>
-        <h1>Status: {props.loggedInStatus}</h1>
+        <div>
+          <h1>Employee Profile</h1>
+          
+        </div>
+        <div>
+          <Punch />
+        </div>
+
       </div>
-    </div>
-  );
+    );
+  };
+
 };
 
-export default Profile;
+
+
+//export default Profile;
