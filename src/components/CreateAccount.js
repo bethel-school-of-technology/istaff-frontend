@@ -17,7 +17,7 @@ export default class CreateAccount extends Component {
     }
 
     changeHandler = e => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     submitHandler = e => {
@@ -51,7 +51,7 @@ export default class CreateAccount extends Component {
                     <label>Username: </label>
                     <input type='text' name='userId' value={userId} onChange={this.changeHandler} /><br />
                     <label>Password: </label>
-                    <input type='password' name ='password' value={password} onChange={this.changeHandler} /><br />
+                    <input type='password' name='password' value={password} onChange={this.changeHandler} /><br />
                     <button type='submit'>Submit</button>
                 </form>
             </div>
