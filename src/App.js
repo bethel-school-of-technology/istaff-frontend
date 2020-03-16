@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 
+import Admin from './components/Admin'
 import Manager from './components/Manager';
 import Profile from './components/Profile';
 import Home from './components/Home';
@@ -108,6 +109,7 @@ class App extends Component {
               />
             )}
           />
+<<<<<<< HEAD
           {<Route exact path="/reset"
             render={props => (
               <ResetPassword
@@ -116,6 +118,8 @@ class App extends Component {
               />
             )}
           />}
+=======
+>>>>>>> 6ff64a9cba71add7c9fe72dccd62e690c215a03a
         </div>
       </Router>
     );
