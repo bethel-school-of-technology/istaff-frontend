@@ -49,6 +49,8 @@ export default class CreateAccount extends Component {
                     idcomp: localStorage.getItem('idcomp'),
                     manager: '0'
                 })
+
+                //document.getElementById('list').innerHTML = <EmployeeList />;
             })
             .catch(error => {
                 console.log(error)

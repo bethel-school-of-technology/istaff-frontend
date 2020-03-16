@@ -6,6 +6,7 @@ import './App.css';
 import Manager from './components/Manager';
 import Profile from './components/Profile';
 import Home from './components/Home';
+import ResetPassword from './components/ResetPassword';
 
 class App extends Component {
   constructor() {
@@ -99,14 +100,22 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route exact path="/admin"
+          <Route exact path="/admin"
             render={props => (
               <Admin
                 {...props}
                 loggedInStatus={this.state.loggedInStatus}
               />
             )}
-          /> */}
+          />
+          {<Route exact path="/reset"
+            render={props => (
+              <ResetPassword
+                {...props}
+                loggedInStatus={this.state.loggedInStatus}
+              />
+            )}
+          />}
         </div>
       </Router>
     );

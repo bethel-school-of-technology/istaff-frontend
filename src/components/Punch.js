@@ -40,6 +40,7 @@ export default class Punch extends Component {
                     console.log(data)
                     //BACKEND RESPONSE
                     console.log(response)
+                    document.getElementById('punch').innerHTML = 'Clock Out';
                 })
                 .catch(error => {
                     console.log(error)
@@ -55,6 +56,7 @@ export default class Punch extends Component {
                     console.log(data)
                     //BACKEND RESPONSE
                     console.log(response)
+                    document.getElementById('punch').innerHTML = 'Clock In';
                 })
                 .catch(error => {
                     console.log(error)
@@ -69,7 +71,7 @@ export default class Punch extends Component {
         return (
             <div className="App">
                 <form onSubmit={this.submitHandler} method="user" className="right">
-                    <button type='submit' onClick={this.handleCheck} >Submit</button>
+                    <button id="punch" type='submit' onClick={this.handleCheck} >Clock In</button>
                 </form>
             </div>
         );

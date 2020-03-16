@@ -15,7 +15,9 @@ export default class Manager extends Component {
             <div>
                 <h1>Manager Portal</h1>
                 <CreateAccount /><br />
+                <div id="list">
                 <EmployeeList />
+                </div>
             </div>
         );
     };
