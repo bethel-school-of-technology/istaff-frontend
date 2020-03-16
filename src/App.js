@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 
+import Admin from './components/Admin'
 import Manager from './components/Manager';
 import Profile from './components/Profile';
 import Home from './components/Home';
@@ -99,14 +100,14 @@ class App extends Component {
               />
             )}
           />
-          {/* <Route exact path="/admin"
+          <Route exact path="/admin"
             render={props => (
               <Admin
                 {...props}
                 loggedInStatus={this.state.loggedInStatus}
               />
             )}
-          /> */}
+          />
         </div>
       </Router>
     );
