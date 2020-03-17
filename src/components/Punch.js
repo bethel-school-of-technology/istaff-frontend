@@ -40,7 +40,7 @@ export default class Punch extends Component {
                     console.log(data)
                     //BACKEND RESPONSE
                     console.log(response)
-                    document.getElementById('punch').innerHTML = 'Clock Out';
+                    document.getElementById('punch').innerHTML = 'Clock Out'; //Change to JSX create Element?
                 })
                 .catch(error => {
                     console.log(error)

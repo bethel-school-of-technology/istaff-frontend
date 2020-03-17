@@ -15,7 +15,8 @@ export default class CreateAccount extends Component {
             password: '',
             email: '',
             idcomp: localStorage.getItem('idcomp'),
-            manager: '0'
+            manager: '0',
+            jwt: localStorage.getItem('jwt')
         }
     }
         //THIS ASSIGNS TRUE OR FALSE FOR THE MANAGER CHECKBOX

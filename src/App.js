@@ -8,6 +8,7 @@ import Manager from './components/Manager';
 import Profile from './components/Profile';
 import Home from './components/Home';
 import ResetPassword from './components/ResetPassword';
+import Schedule from './components/Schedule';
 
 class App extends Component {
   constructor() {
@@ -109,17 +110,22 @@ class App extends Component {
               />
             )}
           />
-<<<<<<< HEAD
-          {<Route exact path="/reset"
+          <Route exact path="/reset"
             render={props => (
               <ResetPassword
                 {...props}
                 loggedInStatus={this.state.loggedInStatus}
               />
             )}
-          />}
-=======
->>>>>>> 6ff64a9cba71add7c9fe72dccd62e690c215a03a
+          />
+          <Route exact path="/schedule"
+            render={props => (
+              <Schedule
+                {...props}
+                loggedInStatus={this.state.loggedInStatus}
+              />
+            )}
+          />
         </div>
       </Router>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Punch from './Punch';
+import Schedule from "./Schedule";
 
 //LINE 12 IS A PLACEHOLDER TO SHOW USER LOGIN STATUS
 //"NOT_LOGGED_IN" IS DEFAULT STATE FOR PROP DEFINED IN APP.JS
@@ -22,6 +23,7 @@ export default class Profile extends Component {
         </div>
         <div>
           <Punch />
+          <Schedule />
         </div>
 
       </div>

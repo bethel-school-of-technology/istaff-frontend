@@ -5,87 +5,55 @@ export default class ResetPassword extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
-            password: "",
-            confirmPassword: ""
+            password: '',
+            email: ''
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
-    handleChange(event) {
-        this.setState({ value: event.target.value });
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value })
     }
 
-    //VALIDATION ON PASSWORD VS. CONFIRMPASSWORD
-    validatePassword() {
-        return (
-            this.state.password.length > 0 &&
-            this.state.password === this.state.confirmPassword
-        )
+    handleSubmit = e => {
+        e.preventDefault();
+        console.log(this.state)
+        axios.post("http://localhost:3001/users/emps", this.state)
+            .then(response => {
+                console.log(response);
+            })
+        // return (
+        //     <div>
+        //         <p>Your password has been reset.</p>
+        //         <div>
+        //             <Link to="http://localhost:3000">
+        //                 Please click here to login with your new credentials.
+        //     </Link>
+        //         </div>
+        //     </div>
+        // );
     }
-    handleSubmit(event) {
 
-        const { email, password } = this.state;
-        axios
-            .post("http://localhost:3001/emps",
-                //may need to alter address
-                {
-                    email,
-                    password
-                },
-            );
-
-        return (
-            <div>
-                <p>Your password has been reset.</p>
-                <div>
-                    <Link to="http://localhost:3000">
-                        Please click here to login with your new credentials.
-            </Link>
-                </div>
-            </div>
-        );
-
-
-
-
-    }
-    handlePasswordChange(event) {
-        this.setState({ password: event.target.value })
-    }
     render() {
+        const { password, email } = this.state
         return (
-            <div>
+            <div className="App">
                 <h1>Reset Password Form</h1>
-                <form onSubmit={this.handlePasswordChange}>
-                    <input
-                        type="text"
-                        name="email"
-                        placeholder="Email"
-                        defaultValue={this.state.email}
-                        //onChange={this.handleChange}
-                        required />
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="email" placeholder="Email" value={email} onChange={this.handleChange} required /><br />
+                    <input type="string" name="password" placeholder="New Password" value={password} onChange={this.handleChange} required />
                     <br />
-                    <input
-                        type="string"
-                        name="password"
-                        placeholder="New Password"
-                        defaultValue={this.state.password}
-                        //onChange={this.handleChange}
-                        required />
-                    <br />
-                    <input
+                    {/* <input
                         type="string"
                         name="confirmPassword"
                         placeholder="Confirm Password"
-                        defaultValue={this.state.confirmPassword}
-                        //onChange={this.validatePassword}
+                        value={confirmPassword}
+                        onChange={this.handleChange}
+                        onSubmit={this.validatePassword}
                         required
                     />
-                    <br />
+                    <br /> */}
                     <button
                         type="submit"
-                        onSubmit={this.handleSubmit}> Submit New Password
+                            > Submit New Password
           </button>
                 </form>
             </div>
