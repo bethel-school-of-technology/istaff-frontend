@@ -8,11 +8,11 @@ export default class EmployeeList extends Component {
         console.log('Employee List is active');
 
         this.state = {
-            users: []
+            users: [] 
         };
 
         this.handleDelete = this.handleDelete.bind(this);
-        this.handleCheck = this.handleCheck.bind(this);
+        //this.handleCheck = this.handleCheck.bind(this);
     }
     handleCheck = (idemp) => {
         var data = [...this.state.users]; 
@@ -29,7 +29,7 @@ export default class EmployeeList extends Component {
         axios.post('http://localhost:3001/users', data)
             .then(res => {
                 //console.log(res.data)
-                const users = res.data.map(obj => ({ idemp: obj.idemp, firstName: obj.firstName, lastName: obj.lastName, active: obj.active}));
+                const users = res.data.map(obj => ({ idemp: obj.idemp, firstName: obj.firstName, lastName: obj.lastName, active:'0'}));
                 this.setState({ users });
                // console.log(userdata);
                 // const activedata = res.data.map(obj => ({active:'0'}));
@@ -48,14 +48,29 @@ export default class EmployeeList extends Component {
                 console.log(error);
             });
     };
+
+    activateUser = (idemp) => {
+    console.log('Am I working?')
+    console.log(this.state.users);
+    axios.post('http://localhost:3001/users/'+ idemp, this.state)
+    .then(res=>{
+        console.log(res)
+        this.setState({
+            active: '1'
+        })
+    })
+    }
     submitHandler = (idemp) => {
         // e.preventDefault();
         //console.log(this.state);
-        console.log('WHERE IS SHE!!!!')
+        console.log('no cake')
         console.log(this.state.users);
-        axios.post('http://localhost:3001/users/'+ idemp, this.state.users)
-            .then(response => {
-                console.log(response)
+        axios.post('http://localhost:3001/users/'+ idemp, this.state)
+            .then(res => {
+                console.log(res)
+                this.setState({
+                    active: '0'
+                })
     
             })
             .catch(error => {
@@ -74,8 +89,10 @@ export default class EmployeeList extends Component {
                                 <h3>{user.firstName} {user.lastName}</h3>
                                 <button>Edit</button><button onClick={() => this.handleDelete(user.idemp)}>Delete</button>
                               <div>
-                              <input type='checkbox' name ='Disable User'  onChange={event=> this.handleCheck(user.idemp)} /><br />
+                              {/* <input type='checkbox' name ='Disable User'  onChange={event=> this.handleCheck(user.idemp)} /><br /> */}
                                 <button onClick={() => this.submitHandler(user.idemp)} >Disable User</button>
+                                <button onClick={() => this.activateUser(user.idemp)} >Activate User</button>
+                                <input type='checkbox' name ='Disable User'  onChange={event=> this.handleCheck(user.idemp)} /><br />
                                 </div>
                               </div>   
                         )
