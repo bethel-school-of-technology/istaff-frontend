@@ -8,9 +8,10 @@ export default class EmployeeList extends Component {
         console.log('Employee List is active');
 
         this.state = {
-            users: []
+            users: [],
         };
 
+        this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
 
@@ -24,6 +25,8 @@ export default class EmployeeList extends Component {
             });
     }
 
+    //Add a prompt in handleDelete() so the employee doesn't accidentally get deleted!
+
     handleDelete = (idemp) => {
         axios.delete(`http://localhost:3001/users/` + idemp)
             .then(res => {
@@ -35,6 +38,10 @@ export default class EmployeeList extends Component {
             });
     };
 
+    handleEdit(event) {
+        console.log("Button Click Works!")
+    }
+
     render() {
         return (
             <div>
@@ -44,7 +51,8 @@ export default class EmployeeList extends Component {
                         return (
                             <div key={index}>
                                 <h3>{user.firstName} {user.lastName}</h3>
-                                <button>Edit</button><button onClick={() => this.handleDelete(user.idemp)}>Delete</button>
+                                <button onClick={this.handleEdit}>Update</button>
+                                <button onClick={() => this.handleDelete(user.idemp)}>Delete</button>
                             </div>
                         )
                     })}
