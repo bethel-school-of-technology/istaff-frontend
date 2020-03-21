@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+import Logout from './Logout';
+
 export default class EmployeeList extends Component {
     constructor(props) {
         super(props);
@@ -81,6 +83,7 @@ export default class EmployeeList extends Component {
     render() {
         return (
             <div>
+            <Logout  />
                 <h1>Employee List</h1>
                 <ul>
                     {this.state.users.map((user, index) => {
@@ -89,7 +92,6 @@ export default class EmployeeList extends Component {
                                 <h3>{user.firstName} {user.lastName}</h3>
                                 <button>Edit</button><button onClick={() => this.handleDelete(user.idemp)}>Delete</button>
                               <div>
-                              {/* <input type='checkbox' name ='Disable User'  onChange={event=> this.handleCheck(user.idemp)} /><br /> */}
                                 <button onClick={() => this.submitHandler(user.idemp)} >Disable User</button>
                                 <button onClick={() => this.activateUser(user.idemp)} >Activate User</button>
                                 <input type='checkbox' name ='Disable User'  onChange={event=> this.handleCheck(user.idemp)} /><br />

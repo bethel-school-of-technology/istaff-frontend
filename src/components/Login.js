@@ -11,7 +11,7 @@ export default class Login extends Component {
             password: "",
             loginErrors: ""
         };
-
+        localStorage.clear();
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
     }

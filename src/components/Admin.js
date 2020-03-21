@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from "axios";
-import { Redirect } from "react-router-dom";
+
+import Logout from './Logout';
 import CreateAccount from './CreateAccount';
 import EmployeeList from './EmployeeList';
 export default class Manager extends Component {
@@ -12,6 +12,7 @@ export default class Manager extends Component {
     render() {
         return (
             <div>
+                <Logout  />
                 <h1>Admin Portal</h1>
                 <CreateAccount /><br />
                 <EmployeeList />

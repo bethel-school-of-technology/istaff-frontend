@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Logout from './Logout';
 import Punch from './Punch';
 
 //LINE 12 IS A PLACEHOLDER TO SHOW USER LOGIN STATUS
@@ -16,6 +16,7 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
+        <Logout  />
         <div>
           <h1>Employee Profile</h1>
           

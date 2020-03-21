@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Logout from './Logout';
+
 export default class CreateAccount extends Component {
     constructor(props) {
         super(props)
@@ -59,6 +61,7 @@ export default class CreateAccount extends Component {
         const { firstName, lastName, middleName, dob, hireDate, userId, password, email, idcomp } = this.state
         return (
             <div className="App">
+                <Logout  />
                 <h1>Create Employee Account</h1>
                 <form onSubmit={this.submitHandler} method="user" className="right">
                     <label>First Name: </label>
