@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import Logout from './Logout';
+
 export default class CreateAccount extends Component {
     constructor(props) {
         super(props)

@@ -4,6 +4,8 @@ import UpdateAccount from "./UpdateAccount";
 import CreateSchedule from "./CreateSchedule";
 import $ from 'jquery';
 
+import Logout from './Logout';
+
 export default class EmployeeList extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,7 @@ export default class EmployeeList extends Component {
         console.log('Employee List is active');
 
         this.state = {
-            users: []
+            users: [] 
         };
 
         this.handleDelete = this.handleDelete.bind(this);
@@ -78,10 +80,22 @@ export default class EmployeeList extends Component {
                 console.log(error);
             });
     };
+
+    activateUser = (idemp) => {
+    console.log('Am I working?')
+    console.log(this.state.users);
+    axios.post('http://localhost:3001/users/'+ idemp, this.state)
+    .then(res=>{
+        console.log(res)
+        this.setState({
+            active: '1'
+        })
+    })
+    }
     submitHandler = (idemp) => {
         // e.preventDefault();
         //console.log(this.state);
-        console.log('WHERE IS SHE!!!!')
+        console.log('no cake')
         console.log(this.state.users);
         axios.post('http://localhost:3001/users/' + idemp, this.state.users)
             .then(response => {

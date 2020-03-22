@@ -22,6 +22,7 @@ class App extends Component {
     };
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   //checkLoginStatus() IS CALLED IN componentDidMount() BELOW
@@ -60,6 +61,13 @@ class App extends Component {
     this.checkLoginStatus();
   }
 
+  handleLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    })
+  }
+
   //UPDATES STATE OF loggedInStatus TO "LOGGED_IN" WITH SUCCESSFUL LOGIN
 
   handleLogin(data) {
@@ -68,7 +76,9 @@ class App extends Component {
       user: data.user
     });
   }
+ 
 
+  
   //COMPONENTS ARE ROUTED HERE
   //ROUTES FOR HOME & PROFILE HAVE ALL PROPS AVAILABLE TO THEM
 
@@ -82,10 +92,20 @@ class App extends Component {
               <Home
                 {...props}
                 handleLogin={this.handleLogin}
+                handleLogout={this.handleLogout}
                 loggedInStatus={this.state.loggedInStatus}
               />
             )}
           />
+          {/* <Route exact path="/logout"
+            render={props => (
+              <Logout
+                {...props}
+                handleLogout={this.handleLogout}
+                loggedInStatus={this.state.loggedInStatus}
+              />
+            )}
+          /> */}
           <Route exact path="/profile"
             render={props => (
               <Profile

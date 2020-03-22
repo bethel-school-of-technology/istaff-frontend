@@ -70,6 +70,9 @@ export default class Home extends Component {
             localStorage.setItem('idemp', idemp);
             localStorage.setItem('userId', userId);
             this.props.history.push("/admin");
+
+        } else if (data.hasOwnProperty('not_logged_in')) {
+            this.props.history.push("/");
         }
     }
 
