@@ -97,7 +97,7 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/logout"
+          {/* <Route exact path="/logout"
             render={props => (
               <Logout
                 {...props}
@@ -105,7 +105,7 @@ class App extends Component {
                 loggedInStatus={this.state.loggedInStatus}
               />
             )}
-          />
+          /> */}
           <Route exact path="/profile"
             render={props => (
               <Profile
