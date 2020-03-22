@@ -15,17 +15,17 @@ export default class EmployeeList extends Component {
         };
 
         this.handleDelete = this.handleDelete.bind(this);
-        this.handleCheck = this.handleCheck.bind(this);
+        //this.handleCheck = this.handleCheck.bind(this);
     }
-    handleCheck = (idemp) => {
-        var data = [...this.state.users];
-        var index = data.findIndex(obj => obj.idemp === idemp);
-        if (data[index].active === '0') {
-            data[index].active = '1';
-        }
-        else data[index].active = '0';
-        this.setState({ data });
-    }
+    // handleCheck = (idemp) => {
+    //     var data = [...this.state.users];
+    //     var index = data.findIndex(obj => obj.idemp === idemp);
+    //     if (data[index].active === '0') {
+    //         data[index].active = '1';
+    //     }
+    //     else data[index].active = '0';
+    //     this.setState({ data });
+    // }
 
     componentDidMount() {
         let data = { ...this.state, idcomp: localStorage.getItem('idcomp') }
@@ -104,42 +104,32 @@ export default class EmployeeList extends Component {
         return (
             <div>
                 {/* <h1>Employee List</h1> */}
-                <ul >
+                <ul>
                     {this.state.users.map((user, index) => {
                         return (
-                            <form>
-                                <div key={index}>
-                                    <h3>{user.firstName} {user.lastName}</h3>
-
-                                    <div class="dropdown">
+                            <div key={index}>
+                                <h3>{user.firstName} {user.lastName}</h3>
+                                <div class="row">
+                                    <div class="dropdown col-12">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Update Account
                                         </button>
                                         <div class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <UpdateAccount idemp={user.idemp} firstName={user.firstName} lastName={user.lastName} middleName={user.middleName}
-                                                dob={user.dob} hireDate={user.hireDate} userId={user.userId} email={user.email} manager={user.manager} password={user.password}
+                                                dob={user.dob} hireDate={user.hireDate} userId={user.userId} email={user.email} manager={user.manager} password={user.password} active={user.active}
                                             />
                                         </div>
                                     </div>
-                                    <div class="dropdown">
+                                    <div class="dropdown col-12">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Create Schedule
                                         </button>
                                         <div class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <CreateSchedule idemp={user.idemp}/>
+                                            <CreateSchedule idemp={user.idemp} />
                                         </div>
                                     </div>
-
-                                    {/* <button>Edit</button><button onClick={() => this.handleDelete(user.idemp)}>Delete</button> */}
-
-
-
-                                    <div>
-                                        <input type='checkbox' name='Disable User' onChange={event => this.handleCheck(user.idemp)} /><br />
-                                        <button onClick={() => this.submitHandler(user.idemp)} >Disable User</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </div><br />
+                            </div>
                         )
                     })}
                 </ul>

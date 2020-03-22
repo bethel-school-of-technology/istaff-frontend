@@ -1,21 +1,70 @@
+html, h1, h2, h3 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: oblique;
+  font-variant: normal;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  margin-left: 15px;
+} 
+
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
 
 #emplist {
-    height:400px; width: 100%; overflow:hidden; overflow-y:scroll;
-  }
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
 
 #schtable {
-    width: 100%;
+  width: 100%;
+}
+
+code {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: medium;
+  font-weight: normal;
+  text-size-adjust: 1;
+}
+
+.form-control {
+  text-align: center;
+  font-size: 16px;
+  background-color: beige;
   }
+
+.row {
+  justify-content: center;
+}
+
+@media (sm) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+@media (md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@media (lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}

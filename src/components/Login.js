@@ -60,7 +60,7 @@ export default class Login extends Component {
                 else if (response.data.logged_in_admin) {
                     console.log('Received Logged_In_Admin Response')
                     this.props.handleSuccessfulAuth(response.data)
-                    
+
 
                     return <Redirect to="/admin" />
                 }
@@ -77,29 +77,34 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <img src={logo} class="App-logo" alt="Logo"/><br />
-                <h2>Login</h2>
+                <img src={logo} alt="Logo" /><br />
+                {/* <h2>Login</h2> */}
                 <form onSubmit={this.onSubmit}>
-                    <input
-                        type="string"
-                        name="userId"
-                        placeholder="Username"
-                        value={this.state.userId}
-                        onChange={this.onChange}
-                        required
-                    /><br />
+                    <div class="row">
+                            <input
+                                class="form-control col-3"
+                                type="string"
+                                name="userId"
+                                placeholder="Username"
+                                value={this.state.userId}
+                                onChange={this.onChange}
+                                required
+                            />
+                    </div>
+                    <div class="row">
+                        <input
+                            class="form-control col-3"
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.onChange}
+                            required
+                        />
+                    </div>
 
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.onChange}
-                        required
-                    /><br />
-
-                    <button type="submit">Login</button><button>Forgot Password</button><br />
-                    <button>Manager Sign Up!</button>
+                    <button class="btn btn-primary col-1" type="submit">Login</button><button class="btn btn-secondary col-2">Forgot Password</button><br />
+                    <button class="btn btn-success col-3">Manager Sign Up!</button>
                 </form>
             </div>
         );
