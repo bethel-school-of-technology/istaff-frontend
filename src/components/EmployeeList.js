@@ -44,19 +44,23 @@ export default class EmployeeList extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Employee List</h1>
-                <ul>
-                    {this.state.users.map((user, index) => {
-                        return (
-                            <div key={index}>
-                                <h3>{user.firstName} {user.lastName}</h3>
-                                <button onClick={this.handleEdit}>Update</button>
-                                <button onClick={() => this.handleDelete(user.idemp)}>Delete</button>
-                            </div>
-                        )
-                    })}
-                </ul>
+            <div class="grid">
+                <div class="col-12-12">
+                    <header class="module">
+                        <h1>Employee List</h1>
+                    </header>
+                    <ul>
+                        {this.state.users.map((user, index) => {
+                            return (
+                                <div key={index}>
+                                    <h3>{user.firstName} {user.lastName}</h3>
+                                    <button onClick={this.handleEdit}>Update</button>
+                                    <button onClick={() => this.handleDelete(user.idemp)}>Delete</button>
+                                </div>
+                            )
+                        })}
+                    </ul>
+                </div>
             </div>
         );
     }

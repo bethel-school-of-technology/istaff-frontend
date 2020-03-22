@@ -72,8 +72,10 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div class="grid">
+                <div class="col-12-12">
                 <Login handleSuccessfulAuth={this.handleSuccessfulAuth} />
+                </div>
             </div>
         );
     }
