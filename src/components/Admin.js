@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import CreateAccount from './CreateAccount';
 import EmployeeList from './EmployeeList';
 import logo from '../Images/Logo19.png';
+import Logout from './Logout'
+
 export default class Manager extends Component {
     constructor(props) {
         super(props)
@@ -11,6 +13,7 @@ export default class Manager extends Component {
     render() {
         return (
             <div>
+                <Logout  />
                 <img src={logo} alt="Logo"/><br />
                 <h1>Admin Portal</h1>
                 <div class="dropdown">
