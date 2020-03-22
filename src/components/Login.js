@@ -104,7 +104,6 @@ export default class Login extends Component {
                     </div>
 
                     <button class="btn btn-primary col-1" type="submit">Login</button><button class="btn btn-secondary col-2">Forgot Password</button><br />
-                    <button class="btn btn-success col-3">Manager Sign Up!</button>
                 </form>
             </div>
         );
