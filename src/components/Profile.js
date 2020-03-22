@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Logout from './Logout';
+import logo from '../Images/Logo19.png';
 import Punch from './Punch';
+import Schedule from "./Schedule";
 
 //LINE 12 IS A PLACEHOLDER TO SHOW USER LOGIN STATUS
 //"NOT_LOGGED_IN" IS DEFAULT STATE FOR PROP DEFINED IN APP.JS
@@ -18,11 +19,13 @@ export default class Profile extends Component {
       <div>
         <Logout  />
         <div>
+        <img src={logo} alt="Logo"/><br />
           <h1>Employee Profile</h1>
           
         </div>
         <div>
           <Punch />
+          <Schedule />
         </div>
 
       </div>
@@ -30,7 +33,3 @@ export default class Profile extends Component {
   };
 
 };
-
-
-
-//export default Profile;

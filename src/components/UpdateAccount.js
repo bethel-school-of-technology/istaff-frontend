@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import $ from 'jquery';
 
-import Logout from './Logout';
-
-export default class CreateAccount extends Component {
+export default class UpdateAccount extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            firstName: '',
-            lastName: '',
-            middleName: '',
-            dob: '',
-            hireDate: '',
-            userId: '',
-            password: '',
-            email: '',
+            active: this.props.active,
+            idemp: this.props.idemp,
+            firstName: this.props.firstName,
+            lastName: this.props.lastName,
+            middleName: this.props.middleName,
+            dob: this.props.dob,
+            hireDate: this.props.hireDate,
+            userId: this.props.userId,
+            email: this.props.email,
             idcomp: localStorage.getItem('idcomp'),
-            manager: '0',
+            password: this.props.password,
+            manager: this.props.manager,
             jwt: localStorage.getItem('jwt')
         }
     }
@@ -30,6 +31,14 @@ export default class CreateAccount extends Component {
         }
     }
 
+    activeCheck = e => {
+        if (this.state.active === 0) {
+            this.setState({ active: 1 })
+        } else {
+            this.setState({ active: 0 })
+        }
+    }
+
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -37,22 +46,25 @@ export default class CreateAccount extends Component {
     submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://localhost:3001/users/signup', this.state)
+        axios.post('http://localhost:3001/users/updateAccount', this.state)
             .then(response => {
                 console.log(response)
-                this.setState({
-                    firstName: '',
-                    lastName: '',
-                    middleName: '',
-                    dob: '',
-                    hireDate: '',
-                    userId: '',
-                    password: '',
-                    email: '',
-                    idcomp: localStorage.getItem('idcomp'),
-                    manager: '0',
-                    jwt: localStorage.getItem('jwt')
-                })
+                // this.setState({
+                //     active: response.data.active,
+                //     idemp: response.data.idemp,
+                //     firstName: response.data.firstName,
+                //     lastName: response.data.lastName,
+                //     middleName: response.data.middleName,
+                //     dob: response.data.dob,
+                //     hireDate: response.data.hireDate,
+                //     userId: response.data.userId,
+                //     password: response.data.password,
+                //     email: response.data.email,
+                //     idcomp: localStorage.getItem('idcomp'),
+                //     manager: response.data.manager,
+                //     jwt: localStorage.getItem('jwt')
+                // })
+                alert("User " + this.state.userId + " was updated")
 
                 //document.getElementById('list').innerHTML = <EmployeeList />;
             })
@@ -62,11 +74,11 @@ export default class CreateAccount extends Component {
     }
 
     render() {
-        const { firstName, lastName, middleName, dob, hireDate, userId, password, email, idcomp } = this.state
+        const { firstName, lastName, middleName, dob, hireDate, userId, password, email, idcomp, active } = this.state
         return (
-            
+
             <div className="App">
-                
+
                 {/* <h3>Create Employee Account</h3> */}
                 <div class="input-group input-group-md mb-8 col-12">
                     <form class="form-control" onSubmit={this.submitHandler} method="user" className="right">
@@ -75,7 +87,7 @@ export default class CreateAccount extends Component {
                                 <label>First Name</label><input class="form-control" type='text' name='firstName' value={firstName} onChange={this.changeHandler} placeholder='First Name' />
                             </div>
                             <div class="col-4">
-                               <label>Last Name</label><input class="form-control" type='text' name='lastName' value={lastName} onChange={this.changeHandler} placeholder='Last Name' />
+                                <label>Last Name</label><input class="form-control" type='text' name='lastName' value={lastName} onChange={this.changeHandler} placeholder='Last Name' />
                             </div>
                             <div class="col-4">
                                 <label>Middle Name</label><input class="form-control" type='text' name='middleName' value={middleName} onChange={this.changeHandler} placeholder='Middle Name' />
@@ -107,13 +119,17 @@ export default class CreateAccount extends Component {
                             <div class="col-2">
                                 <label>Manager:</label><input class="form-control" type='checkbox' name='manager' onChange={this.handleCheck} />
                             </div>
+                            <div class="col-4">
+                                <label>Disable:</label><input class="form-control" type='checkbox' name='Disable User' onChange={this.activeCheck} defaultChecked={this.state.active === 0}/><br />
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-12">
-                                <button class="form-control btn btn-primary" type='submit'>Submit</button>
+                                <button class="form-control btn btn-success" type='submit'>Update</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                
             </div>
         );
     }
