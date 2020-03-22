@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import logo from '../Images/Logo19.png';
 import Punch from './Punch';
 import Schedule from "./Schedule";
 
@@ -18,6 +18,7 @@ export default class Profile extends Component {
     return (
       <div>
         <div>
+        <img src={logo} alt="Logo"/><br />
           <h1>Employee Profile</h1>
           
         </div>
@@ -31,7 +32,3 @@ export default class Profile extends Component {
   };
 
 };
-
-
-
-//export default Profile;

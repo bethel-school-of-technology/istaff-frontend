@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateAccount extends Component {
+export default class UpdateAccount extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            firstName: '',
-            lastName: '',
-            middleName: '',
-            dob: '',
-            hireDate: '',
-            userId: '',
-            password: '',
-            email: '',
+            idemp: this.props.idemp,
+            firstName: this.props.firstName,
+            lastName: this.props.lastName,
+            middleName: this.props.middleName,
+            dob: this.props.dob,
+            hireDate: this.props.hireDate,
+            userId: this.props.userId,
+            email: this.props.email,
             idcomp: localStorage.getItem('idcomp'),
-            manager: '0',
+            password: this.props.password,
+            manager: this.props.manager,
             jwt: localStorage.getItem('jwt')
         }
     }
@@ -35,22 +36,24 @@ export default class CreateAccount extends Component {
     submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://localhost:3001/users/signup', this.state)
+        axios.post('http://localhost:3001/users/updateAccount', this.state)
             .then(response => {
                 console.log(response)
                 this.setState({
-                    firstName: '',
-                    lastName: '',
-                    middleName: '',
-                    dob: '',
-                    hireDate: '',
-                    userId: '',
-                    password: '',
-                    email: '',
+                    idemp: response.data.idemp,
+                    firstName: response.data.firstName,
+                    lastName: response.data.lastName,
+                    middleName: response.data.middleName,
+                    dob: response.data.dob,
+                    hireDate: response.data.hireDate,
+                    userId: response.data.userId,
+                    password: response.data.password,
+                    email: response.data.email,
                     idcomp: localStorage.getItem('idcomp'),
-                    manager: '0',
+                    manager: response.data.manager,
                     jwt: localStorage.getItem('jwt')
                 })
+                alert("User " + this.state.userId + " was updated")
 
                 //document.getElementById('list').innerHTML = <EmployeeList />;
             })
@@ -106,7 +109,7 @@ export default class CreateAccount extends Component {
                                 <label>Manager:</label><input class="form-control" type='checkbox' name='manager' onChange={this.handleCheck} />
                             </div>
                             <div class="col-12">
-                                <button class="form-control btn btn-primary" type='submit'>Submit</button>
+                                <button class="form-control btn btn-success" type='submit'>Update</button>
                             </div>
                         </div>
                     </form>

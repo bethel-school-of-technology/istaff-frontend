@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import logo from '../Images/Logo19.png';
 
 export default class Login extends Component {
     constructor(props) {
@@ -31,7 +32,6 @@ export default class Login extends Component {
 
         //LOGIN CREDNETIALS PROVIDED ARE POSTED TO THE BACKEND FOR AUTHENTICATION
         //SUCCESSFUL LOGIN RETURNS RESPONSE, AUTHENTICATES & REDIRECTS USER
-
         axios
             .post(
                 "http://localhost:3001/users/login",
@@ -77,7 +77,7 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to iStaff!</h1><br />
+                <img src={logo} class="App-logo" alt="Logo"/><br />
                 <h2>Login</h2>
                 <form onSubmit={this.onSubmit}>
                     <input

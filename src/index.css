@@ -11,3 +11,11 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+#emplist {
+    height:400px; width: 100%; overflow:hidden; overflow-y:scroll;
+  }
+
+#schtable {
+    width: 100%;
+  }
