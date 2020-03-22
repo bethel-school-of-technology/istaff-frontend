@@ -95,7 +95,7 @@ export default class EmployeeList extends Component {
                                 <button onClick={() => this.submitHandler(user.idemp)} >Disable User</button>
                                 <button onClick={() => this.activateUser(user.idemp)} >Activate User</button>
                                 <input type='checkbox' name ='Disable User'  onChange={event=> this.handleCheck(user.idemp)} /><br />
-                                </div>
+                                 </div>
                               </div>   
                         )
                     })}
