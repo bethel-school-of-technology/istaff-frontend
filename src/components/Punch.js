@@ -8,6 +8,7 @@ export default class Punch extends Component {
         this.state = {
             punch: localStorage.getItem('punch'),
             idemp: localStorage.getItem('idemp'),
+            jwt: localStorage.getItem('jwt')
             
         }
 
@@ -34,12 +35,6 @@ export default class Punch extends Component {
             let data = { ...this.state, clock_in: new Date(), idtime_punch: localStorage.getItem('idtime_punch')}
             axios.post('http://localhost:3001/users/punch', data)
                 .then(response => {
-                    //localStorage.setItem('idtime_punch');
-                    //FRONTEND CONSOLE LOG
-                    console.log('FRONTEND CONSOLE LOG')
-                    console.log(data)
-                    //BACKEND RESPONSE
-                    console.log(response)
                     document.getElementById('punch').innerHTML = 'Clock Out'; //Change to JSX create Element?
                 })
                 .catch(error => {
@@ -52,10 +47,10 @@ export default class Punch extends Component {
                 .then(response => {
                     localStorage.setItem('idtime_punch', response.data.idtime_punch);
                     //FRONTEND CONSOLE LOG
-                    console.log('FRONTEND CONSOLE LOG')
-                    console.log(data)
+                    //console.log('FRONTEND CONSOLE LOG')
+                    //console.log(data)
                     //BACKEND RESPONSE
-                    console.log(response)
+                    //console.log(response)
                     document.getElementById('punch').innerHTML = 'Clock In';
                 })
                 .catch(error => {
@@ -71,7 +66,7 @@ export default class Punch extends Component {
         return (
             <div className="App">
                 <form onSubmit={this.submitHandler} method="user" className="right">
-                    <button id="punch" type='submit' onClick={this.handleCheck} >Clock In</button>
+                    <button class="btn btn-primary col-4" id="punch" type='submit' onClick={this.handleCheck} >Clock In</button>
                 </form>
             </div>
         );

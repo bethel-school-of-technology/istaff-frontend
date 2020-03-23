@@ -4,31 +4,21 @@ import UpdateAccount from "./UpdateAccount";
 import CreateSchedule from "./CreateSchedule";
 import $ from 'jquery';
 
-import Logout from './Logout';
-
 export default class EmployeeList extends Component {
     constructor(props) {
         super(props);
 
-        console.log('Employee List is active');
+        //console.log('Employee List is active');
 
         this.state = {
-            users: [] 
+            jwt: localStorage.getItem('jwt'),
+            users: []
         };
 
         this.handleDelete = this.handleDelete.bind(this);
         //this.handleCheck = this.handleCheck.bind(this);
     }
-    // handleCheck = (idemp) => {
-    //     var data = [...this.state.users];
-    //     var index = data.findIndex(obj => obj.idemp === idemp);
-    //     if (data[index].active === '0') {
-    //         data[index].active = '1';
-    //     }
-    //     else data[index].active = '0';
-    //     this.setState({ data });
-    // }
-
+    
     componentDidMount() {
         let data = { ...this.state, idcomp: localStorage.getItem('idcomp') }
         axios.post('http://localhost:3001/users', data)
@@ -73,8 +63,8 @@ export default class EmployeeList extends Component {
     handleDelete = (idemp) => {
         axios.delete(`http://localhost:3001/users/` + idemp)
             .then(res => {
-                console.log(res)
-                console.log('it works')
+                //console.log(res)
+                //console.log('it works')
             })
             .catch(function (error) {
                 console.log(error);
@@ -82,24 +72,22 @@ export default class EmployeeList extends Component {
     };
 
     activateUser = (idemp) => {
-    console.log('Am I working?')
-    console.log(this.state.users);
-    axios.post('http://localhost:3001/users/'+ idemp, this.state)
-    .then(res=>{
-        console.log(res)
-        this.setState({
-            active: '1'
-        })
-    })
+        //console.log('Am I working?')
+        //console.log(this.state.users);
+        axios.post('http://localhost:3001/users/' + idemp, this.state)
+            .then(res => {
+                //console.log(res)
+                this.setState({
+                    active: '1'
+                })
+            })
     }
     submitHandler = (idemp) => {
         // e.preventDefault();
         //console.log(this.state);
-        console.log('no cake')
-        console.log(this.state.users);
         axios.post('http://localhost:3001/users/' + idemp, this.state.users)
             .then(response => {
-                console.log(response)
+                //console.log(response)
 
             })
             .catch(error => {
@@ -125,7 +113,7 @@ export default class EmployeeList extends Component {
                                 <h3>{user.firstName} {user.lastName}</h3>
                                 <div class="row">
                                     <div class="dropdown col-12">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-success dropdown-toggle col-lg-2 col-md-3 col-sm-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Update Account
                                         </button>
                                         <div class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -133,9 +121,9 @@ export default class EmployeeList extends Component {
                                                 dob={user.dob} hireDate={user.hireDate} userId={user.userId} email={user.email} manager={user.manager} password={user.password} active={user.active}
                                             />
                                         </div>
-                                    </div>
+                                    </div><br /> <br />
                                     <div class="dropdown col-12">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-secondary dropdown-toggle col-lg-2 col-md-3 col-sm-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Create Schedule
                                         </button>
                                         <div class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton">

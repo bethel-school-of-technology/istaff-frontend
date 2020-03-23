@@ -16,11 +16,11 @@ export default class Manager extends Component {
                 <Logout  />
                 <img src={logo} alt="Logo"/><br />
                 <h1>Admin Portal</h1>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="dropdown">
+                    <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Create Account
                     </button>
-                    <div class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div className="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <CreateAccount />
                     </div>
                 </div><br/>
