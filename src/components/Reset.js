@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import {Link} from "react-router-dom";
 
-export default class Logout extends Component {
+export default class Reset extends Component {
     constructor(props) {
       super(props);
  
@@ -15,7 +15,7 @@ export default class Logout extends Component {
     render() {
         return (
           <div>
-            <Link to='/'>Logout</Link>
+            <Link to='/reset'/>
           </div>
         );
       }

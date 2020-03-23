@@ -8,6 +8,7 @@ export default class Schedule extends Component {
         console.log('Schedule List is Active');
 
         this.state = {
+            jwt: localStorage.getItem('jwt'),
             //week_start: '',
             idschedules: [],
             //idemp: localStorage.getItem('idemp')
@@ -16,7 +17,7 @@ export default class Schedule extends Component {
 
     componentDidMount(idemp) {
         let data = { ...this.state, idemp: localStorage.getItem('idemp') }
-        console.log(data)
+        //console.log(data)
         axios.post('http://localhost:3001/users/schedules', data)
             .then(res => {
                 var moment = require('moment');

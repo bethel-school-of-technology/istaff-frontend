@@ -18,7 +18,7 @@ export default class Manager extends Component {
                 <img src={logo} alt="Logo"/><br />
                 <h1>Manager Portal</h1>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Create Account
                     </button>
                     <div class="dropdown-menu dropdown-menu" aria-labelledby="dropdownMenuButton">

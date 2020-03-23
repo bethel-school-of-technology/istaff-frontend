@@ -12,7 +12,7 @@ export default class Home extends Component {
     //CALLS handleLogin() FUNCTION DEFINED IN APP.JS
 
     handleSuccessfulAuth(data) {
-        console.log(data);
+        //console.log(data);
         this.props.handleLogin(data);
         if (data.hasOwnProperty('logged_in')) {
             const jwt = data.jwt;

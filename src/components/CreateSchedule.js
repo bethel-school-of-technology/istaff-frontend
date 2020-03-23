@@ -23,8 +23,7 @@ export default class CreateSchedule extends Component {
             sat_end: null,
             sun_start: null,
             sun_end: null,
-            jwt: localStorage.getItem('jwt'),
-            idschedules: ''
+            jwt: localStorage.getItem('jwt')
         }
     }
     //THIS ASSIGNS TRUE OR FALSE FOR THE MANAGER CHECKBOX
@@ -42,10 +41,10 @@ export default class CreateSchedule extends Component {
 
     submitHandler = e => {
         e.preventDefault();
-        console.log(this.state);
+        //console.log(this.state);
         axios.post('http://localhost:3001/users/schedule', this.state)
             .then(response => {
-                console.log(response)
+                //console.log(response)
                 this.setState({
                     idschedules: '',
                     idemp: this.props.idemp,
@@ -79,72 +78,72 @@ export default class CreateSchedule extends Component {
             <div className="App">
 
                 {/* <h3>Create Employee Account</h3> */}
-                <div class="input-group input-group-md mb-8 col-12">
-                    <form class="form-control" onSubmit={this.submitHandler} method="user" className="right">
-                        <div class="row">
-                            <div class="col-12">
-                                <label>Week Start</label><input class="form-control" type='date' name='week_start' value={week_start} onChange={this.changeHandler} placeholder='Week Start' />
+                <div className="input-group input-group-md mb-8 col-12">
+                    <form className="form-control" onSubmit={this.submitHandler} method="user" className="right">
+                        <div className="row">
+                            <div className="col-12">
+                                <label>Week Start</label><input className="form-control" type='date' name='week_start' value={week_start} onChange={this.changeHandler} placeholder='Week Start' />
                             </div>
                         </div>
-                        <div class="row">
+                        <div className="row">
                             <div class="col-6">
-                                <label>Monday Start</label><input class="form-control" type='time' name='mon_start' value={mon_start} onChange={this.changeHandler} placeholder='Monday Start' />
+                                <label>Monday Start</label><input className="form-control" type='time' name='mon_start' value={mon_start} onChange={this.changeHandler} placeholder='Monday Start' />
                             </div>
-                            <div class="col-6">
-                                <label>Monday End</label><input class="form-control" type='time' name='mon_end' value={mon_end} onChange={this.changeHandler} placeholder='Monday End' />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Tuesday Start</label><input class="form-control"  type='time' name='tue_start' value={tue_start} onChange={this.changeHandler} placeholder='Tuesday Start' />
-                            </div>
-                            <div class="col-6">
-                                <label>Tuesday End</label><input class="form-control" type='time' name='tue_end' value={tue_end} onChange={this.changeHandler} />
+                            <div className="col-6">
+                                <label>Monday End</label><input className="form-control" type='time' name='mon_end' value={mon_end} onChange={this.changeHandler} placeholder='Monday End' />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Wednesday Start</label><input class="form-control" type='time' name='wen_start' value={wen_start} onChange={this.changeHandler} placeholder='UserID' />
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Tuesday Start</label><input className="form-control"  type='time' name='tue_start' value={tue_start} onChange={this.changeHandler} placeholder='Tuesday Start' />
                             </div>
-                            <div class="col-6">
-                                <label>Wednesday End</label><input class="form-control" type='time' name='wen_end' value={wen_end} onChange={this.changeHandler} placeholder='Password' />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Thursday Start</label><input class="form-control" type='time' name='thu_start' value={thu_start} onChange={this.changeHandler} placeholder='Email' />
-                            </div>
-                            <div class="col-6">
-                                <label>Thursday End</label><input class="form-control"  type='time' name='thu_end' value={thu_end} onChange={this.changeHandler} placeholder='Thursday End' />
+                            <div className="col-6">
+                                <label>Tuesday End</label><input className="form-control" type='time' name='tue_end' value={tue_end} onChange={this.changeHandler} />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Friday Start</label><input class="form-control"  type='time' name='fri_start' value={fri_start} onChange={this.changeHandler} placeholder='Date of Birth' />
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Wednesday Start</label><input className="form-control" type='time' name='wen_start' value={wen_start} onChange={this.changeHandler} placeholder='UserID' />
                             </div>
-                            <div class="col-6">
-                                <label>Friday End</label><input class="form-control" type='time' name='fri_end' value={fri_end} onChange={this.changeHandler} placeholder='Hire Date' />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Satruarday Start </label><input class="form-control" type='time' name='sat_start' value={sat_start} onChange={this.changeHandler} placeholder='UserID' />
-                            </div>
-                            <div class="col-6">
-                                <label>Satruarday End</label><input class="form-control" type='time' name='sat_end' value={sat_end} onChange={this.changeHandler} placeholder='Password' />
+                            <div className="col-6">
+                                <label>Wednesday End</label><input className="form-control" type='time' name='wen_end' value={wen_end} onChange={this.changeHandler} placeholder='Password' />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Sunday Start</label><input class="form-control" type='time' name='sun_start' value={sun_start} onChange={this.changeHandler} placeholder='Email' />
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Thursday Start</label><input className="form-control" type='time' name='thu_start' value={thu_start} onChange={this.changeHandler} placeholder='Email' />
                             </div>
-                            <div class="col-6">
-                                <label>Sunday End</label><input class="form-control" type='time' name='sun_end' value={sun_end} onChange={this.changeHandler} />
+                            <div className="col-6">
+                                <label>Thursday End</label><input className="form-control"  type='time' name='thu_end' value={thu_end} onChange={this.changeHandler} placeholder='Thursday End' />
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <button class="form-control btn btn-primary" type='submit'>Submit</button>
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Friday Start</label><input className="form-control"  type='time' name='fri_start' value={fri_start} onChange={this.changeHandler} placeholder='Date of Birth' />
+                            </div>
+                            <div className="col-6">
+                                <label>Friday End</label><input className="form-control" type='time' name='fri_end' value={fri_end} onChange={this.changeHandler} placeholder='Hire Date' />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Satruarday Start </label><input className="form-control" type='time' name='sat_start' value={sat_start} onChange={this.changeHandler} placeholder='UserID' />
+                            </div>
+                            <div className="col-6">
+                                <label>Satruarday End</label><input className="form-control" type='time' name='sat_end' value={sat_end} onChange={this.changeHandler} placeholder='Password' />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Sunday Start</label><input className="form-control" type='time' name='sun_start' value={sun_start} onChange={this.changeHandler} placeholder='Email' />
+                            </div>
+                            <div className="col-6">
+                                <label>Sunday End</label><input className="form-control" type='time' name='sun_end' value={sun_end} onChange={this.changeHandler} />
+                            </div>
+                        </div><br/>
+                        <div className="row">
+                            <div className="col-12">
+                                <button className="form-control btn btn-primary" type='submit'>Submit</button>
                             </div>
                         </div>
                     </form>
